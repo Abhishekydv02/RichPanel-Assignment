@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './styles.modules.css';
 
-const Page1 = ()=>{
+const Home = ()=>{
   const [isConnected, setIsConnected]=useState(false);
   const [businessIntegrated , setbusinessIntegrated] = useState('');
 
@@ -23,16 +24,17 @@ const Page1 = ()=>{
   }
 
   return(
-    <div className="centered-content">
-      <h2>Facebook Page Integration</h2>
-      {isConnected &&(
-        <div>
-          <h3>Integrated Page : {businessIntegrated} </h3>
-        </div>
-      )}
-      {!isConnected && (<button onClick={handleBusinessIntegration}>Connect Page</button>)}
+    <div className="centered-container">
+      <h2>Facebook Page Integration</h2>    
+      
+      {!isConnected && (
+      <div>
+        <button  onClick={handleBusinessIntegration}>Connect Page</button>
+      </div>)}
+
       {isConnected && (
-        <div>
+        <div className='integrationBtns'>
+          <h3>Integrated Page : {businessIntegrated} </h3>
           <button className='deleteBtn' onClick={removeIntegration}>Delete Integration</button>
           <button onClick={goToDashboard}>Reply To Messages</button>
         </div>
@@ -41,5 +43,5 @@ const Page1 = ()=>{
   )
 }
 
-export default Page1
+export default Home
 

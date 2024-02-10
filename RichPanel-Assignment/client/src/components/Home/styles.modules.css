@@ -1,0 +1,20 @@
+.centered-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 200px;
+    background: #fff;
+}
+
+.integrationBtns{
+    display: flex;
+    align-items: center;
+    flex-direction: column;   
+}

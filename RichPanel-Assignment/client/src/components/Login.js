@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css'; 
-import Page1 from './Page';
+import Home from './Home/index';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
@@ -28,9 +28,8 @@ const Login = () => {
     }
   };
 
-  // If loggedIn is true, render Page1 component
   if (loggedIn) {
-    return <Page1 />;
+    return <Home />;
   }
 
   return (
