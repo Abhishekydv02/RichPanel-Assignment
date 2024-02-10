@@ -15,26 +15,33 @@ const Registration = () => {
 
   return (
     <div className="registration-container">
-      <h2>Registration</h2>
+      <h2>Create Account</h2>
       <form className="registration-form" onSubmit={handleSubmit}>
-        <input
+        <div className='inputElements'>
+          <label>Name</label>
+          <input
           type="text"
-          placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        </div>
+        <div className='inputElements'>
+          <label>Email</label>
         <input
           type="email"
-          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        </div>
+        <div>
+        <label>Password</label>
         <input
           type="password"
-          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        </div>
+        <div className='rememberMe'>
         <label>
           <input
             type="checkbox"
@@ -43,6 +50,7 @@ const Registration = () => {
           />
           Remember me
         </label>
+        </div>
         <button type="submit">Register</button>
         <div>
           <span>Already have an account? </span>

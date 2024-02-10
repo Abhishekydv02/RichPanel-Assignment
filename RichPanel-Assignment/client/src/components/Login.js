@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Login.css'; // Import login.css file
+import './Login.css'; 
 import Page1 from './Page';
 import { Link } from 'react-router-dom';
 
@@ -10,16 +10,16 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false); // Add state for login status
+  const [loggedIn, setLoggedIn] = useState(false); 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { 
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/login', {
         email,
         password,
         rememberMe,
-      });
+      }); 
       console.log(response.data);
       // If login successful, set loggedIn to true
       setLoggedIn(true);
@@ -34,11 +34,11 @@ const Login = () => {
   }
 
   return (
-    <div className="login-container"> {/* Apply login-container class */}
-      <h2>Login</h2>
-      <form className="login-form" onSubmit={handleSubmit}> {/* Apply login-form class */}
-      <div>
-          <label>Email:</label>
+    <div className="login-container"> 
+      <h2>Login to your account</h2>
+      <form className="login-form" onSubmit={handleSubmit}> 
+      <div className='inputElements'>
+          <label>Email</label>
           <input
             type="email"
             value={email}
@@ -47,7 +47,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Password</label>
           <input
             type="password"
             value={password}
@@ -55,17 +55,17 @@ const Login = () => {
             required
           />
         </div>
-        <div>
+        <div className='rememberMe'>
           <input
             type="checkbox"
             checked={rememberMe}
             onChange={(e) => setRememberMe(e.target.checked)}
           />
-          <label>Remember me</label>
+          <span>Remember me</span>
         </div>
         <button type="submit">Login</button>
-        <div>
-          <span>Don't have an account? </span>
+        <div className='footerContent'>
+          <span>New to MyApp? </span>
           <Link to="/register">Sign up</Link>
         </div>
       </form>
