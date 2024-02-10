@@ -18,3 +18,7 @@
     align-items: center;
     flex-direction: column;   
 }
+
+.deleteBtn{
+    background-color: #d01313;
+}
