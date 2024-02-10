@@ -3,14 +3,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css'; 
-import Page1 from './Page';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false); 
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => { 
     e.preventDefault();
@@ -28,9 +28,8 @@ const Login = () => {
     }
   };
 
-  // If loggedIn is true, render Page1 component
   if (loggedIn) {
-    return <Page1 />;
+    navigate('/Home');
   }
 
   return (
