@@ -9,6 +9,16 @@ import ProfileDetails from './profileDetails';
 
 const Dashboard = () => {
 
+  const [chatId, setChatId] = useState(null);
+  const [currentUser,setCurrentUser] = useState(null);
+  const [currentCustomer, setCurrentCustomer] = useState(null);
+
+  const setCurrentChatCustomer = (item) => {
+     setChatId(item?.id);
+     setCurrentUser(item?.participants?.data?.[1]?.id);
+     setCurrentCustomer(item?.participants?.data?.[0]);
+  }
+
   return (
     <> 
       <Row style={{background:"rgba(205,209,228,0.3"}}>
@@ -16,13 +26,14 @@ const Dashboard = () => {
             <Navigation />
         </Col>
         <Col md="3" xs="12">
-            <Conversations />
+            <Conversations handleActiveChats={setCurrentChatCustomer}/>
         </Col>
         <Col md="5" xs="12">
-            <ChatsSection />
+            <ChatsSection chatId = {chatId} currentUserId={currentUser}
+             currentCustomer={currentCustomer} />
         </Col>
         <Col md="3" xs="12">
-            <ProfileDetails />
+            <ProfileDetails currentCustomer={currentCustomer} />
         </Col>
       </Row>
       {/* <h1>Hello</h1> */}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Registration.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Registration = () => {
   const [name, setName] = useState('');
@@ -11,6 +12,34 @@ const Registration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Your registration logic here
+
+    const formData = {
+      name: name,
+      email: email,
+      password: password,
+      rememberMe: rememberMe
+    };
+
+    try {
+      // Send registration request to backend
+      const response = await axios.post('http://localhost:5000/register', {
+        name,
+        email,
+        password,
+      });
+
+      if (!response.ok) {
+        // Handle error response
+        const data = await response.json();
+      }
+
+      // Registration successful, you can redirect the user to another page or perform any other action
+      console.log('Registration successful');
+    } catch (error) {
+      alert('user already exist');
+    }
+
+
   };
 
   return (
