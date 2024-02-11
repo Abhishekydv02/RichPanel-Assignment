@@ -1,9 +1,12 @@
 // Login.js
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Login.css'; 
 import { Link , useNavigate} from 'react-router-dom';
+import { notification } from '../Utils/helper';
+import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -11,6 +14,7 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false); 
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => { 
     e.preventDefault();
@@ -23,8 +27,11 @@ const Login = () => {
       console.log(response.data);
       // If login successful, set loggedIn to true
       setLoggedIn(true);
-    } catch (error) {
-      console.error(error.response.data);
+    } catch (err) {
+      // notification('invalid credentials');
+      // setError(err?.msg);
+      alert(err?.response?.data?.msg);
+      console.log(err.response.data);
     }
   };
 
@@ -33,6 +40,8 @@ const Login = () => {
   }
 
   return (
+    <>
+    <ToastContainer />
     <div className="login-container"> 
       <h2>Login to your account</h2>
       <form className="login-form" onSubmit={handleSubmit}> 
@@ -54,6 +63,7 @@ const Login = () => {
             required
           />
         </div>
+        {error && <span style={{color:"red"}}>{error}</span>}
         <div className='rememberMe'>
           <input
             type="checkbox"
@@ -62,13 +72,14 @@ const Login = () => {
           />
           <span>Remember me</span>
         </div>
-        <button type="submit">Login</button>
+        <button className='loginBtn' type="submit">Login</button>
         <div className='footerContent'>
           <span>New to MyApp? </span>
           <Link to="/register">Sign up</Link>
         </div>
       </form>
     </div>
+    </>
   );
 };
 

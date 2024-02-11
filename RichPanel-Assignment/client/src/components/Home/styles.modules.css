@@ -3,7 +3,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    max-width: 400px;
+    max-width: 500px;
+    min-height:200px;
     margin: auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -17,8 +18,16 @@
     display: flex;
     align-items: center;
     flex-direction: column;   
+    gap: 30px;
 }
 
+.integrationBtns h3{
+    
+}
 .deleteBtn{
     background-color: #d01313;
+}
+.connectPageBtn{
+    margin-top: 20px !important; 
+
 }

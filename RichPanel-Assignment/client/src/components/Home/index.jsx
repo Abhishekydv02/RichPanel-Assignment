@@ -38,13 +38,13 @@ const Home = ()=>{
       )}
 
       {!isConnected && (
-      <div>
+      <div className='connectPageBtn'>
         <button  onClick={handleBusinessIntegration}>Connect Page</button>
       </div>)}
 
       {isConnected && !isLoading && (
         <div className='integrationBtns'>
-          <h3>Integrated Page : {businessIntegrated} </h3>
+          {/* <h3 className=''>Integrated Page : {businessIntegrated} </h3> */}
           <button className='deleteBtn' onClick={removeIntegration}>Delete Integration</button>
           <button onClick={goToDashboard}>Reply To Messages</button>
         </div>
