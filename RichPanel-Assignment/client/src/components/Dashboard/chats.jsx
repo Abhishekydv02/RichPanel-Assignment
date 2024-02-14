@@ -32,7 +32,7 @@ const ChatsSection = ({chatId=null, currentUserId=null, currentCustomer=null}) =
        console.log(error);
      }
   }
-
+  setInterval(fetchChats,1000);
 
   const submitNewChat = async (event) => {
     if (event.key === 'Enter') {
