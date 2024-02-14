@@ -11,8 +11,6 @@ const Registration = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Your registration logic here
-
     const formData = {
       name: name,
       email: email,
@@ -21,7 +19,6 @@ const Registration = () => {
     };
 
     try {
-      // Send registration request to backend
       const response = await axios.post('http://localhost:5000/register', {
         name,
         email,
