@@ -6,6 +6,12 @@ import axios from 'axios';
 import { access_token } from '../../Utils/constants';
 import {timeAgo} from '../../Utils/helper.js';
 import loader from '../../assets/images/loader.gif'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenNib } from '@fortawesome/free-solid-svg-icons'
+import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons'
+import { FaBeer } from 'react-icons/fa';
+
+
 
 
 const Conversations = ({ handleActiveChats }) => {
@@ -87,7 +93,7 @@ const Conversations = ({ handleActiveChats }) => {
     return (
       <>
       <div className='conversationHeader'>
-        <h3>Conversations</h3>
+        <h3 >Conversations</h3>
         <button onClick = {fetchConversations} className='refreshBtn'><img src={refreshIcon} alt="Refresh Icon" /></button>
       </div>
       <div className='loaderImg' >
@@ -100,7 +106,8 @@ const Conversations = ({ handleActiveChats }) => {
   return (
     <div className='containers'>
       <div className='conversationHeader'>
-        <h3>Conversations</h3>
+      <FontAwesomeIcon className='icon1' icon={faBarsStaggered} />
+        <h3 style={{paddingRight:'82px',color:'rgba(61,62,62,255)'}} >Conversations</h3>
         <button onClick = {fetchConversations} className='refreshBtn'><img src={refreshIcon} alt="Refresh Icon" /></button>
       </div>
 

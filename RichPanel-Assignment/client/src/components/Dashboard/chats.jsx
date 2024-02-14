@@ -9,6 +9,8 @@ import axios from 'axios';
 
 const ChatsSection = ({chatId=null, currentUserId=null, currentCustomer=null}) => {
   const [conversation , setConversations] = useState([]);
+  //new
+  
   
   async function fetchChats (){
     try{
@@ -31,22 +33,7 @@ const ChatsSection = ({chatId=null, currentUserId=null, currentCustomer=null}) =
      }
   }
 
-  // const submitNewChat = async(inputText) => {
-  //   try{
-  //     const url=`https://graph.facebook.com/v19.0/me/messages?access_token=${access_token}`;
-  //     const permissions = "pages_messaging,read_mailbox,read_page_mailbox";
-  //     const body = {
-  //       recipient : {id : currentCustomerId},
-  //       message : {text : inputText},
-  //     };
-  //     const response = await axios.post(url,body);
-  //     console.log("new chat posted",response);
-  //     fetchChats();
-  //    }
-  //    catch(error){
-  //      console.log(error);
-  //    }
-  // }
+
   const submitNewChat = async (event) => {
     if (event.key === 'Enter') {
       event.preventDefault(); 
@@ -79,7 +66,7 @@ const ChatsSection = ({chatId=null, currentUserId=null, currentCustomer=null}) =
         <Col md="1" className='chatsIconUsers'>
           {!isCurrentUser && <img className='chatIconUsersImg' src={currentUser} alt="User Icon" />}
         </Col>
-        <Col md = "9"><span>{msg?.message}</span></Col>
+        <Col md = "9"><span style={{backgroundColor:"rgba(255,255,255,255)"}}>{msg?.message}</span></Col>
         {/* {isLastFromUser && <div className="timeStamp">{new Date(msg.time).toLocaleTimeString()}</div>} */}
         <Col className='chatsIconUsers' md="1">
           {isCurrentUser && <img className='chatIconUsersImg' src={customer} alt="User Icon" />}
@@ -101,7 +88,7 @@ const ChatsSection = ({chatId=null, currentUserId=null, currentCustomer=null}) =
         })}
       </div>
       <form className='msgDiv'>
-        <input onKeyDown={submitNewChat} className='msgInput' type="text" placeholder='Type your msg here'></input>
+        <input onKeyDown={submitNewChat} className='msgInput' type="text" placeholder='Message Hiten Saxena'></input>
       </form>
     </div>
   );

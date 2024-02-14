@@ -6,6 +6,7 @@ import Conversations from './conversations';
 import ChatsSection from './chats';
 import Navigation from './navigation';
 import ProfileDetails from './profileDetails';
+import './styles.modules.css';
 
 const Dashboard = () => {
 
@@ -22,17 +23,17 @@ const Dashboard = () => {
   return (
     <> 
       <Row style={{background:"rgba(205,209,228,0.3"}}>
-        <Col md="1" xs="12">
+        <Col className='remove-paddings' md="1" xs="12">
             <Navigation />
         </Col>
-        <Col md="3" xs="12">
+        <Col className='remove-paddings' md="3" xs="12">
             <Conversations handleActiveChats={setCurrentChatCustomer}/>
         </Col>
-        <Col md="5" xs="12">
+        <Col className='remove-paddings' md="5" xs="12">
             <ChatsSection chatId = {chatId} currentUserId={currentUser}
              currentCustomer={currentCustomer} />
         </Col>
-        <Col md="3" xs="12">
+        <Col className='remove-paddings' md="3" xs="12">
             <ProfileDetails currentCustomer={currentCustomer} />
         </Col>
       </Row>
